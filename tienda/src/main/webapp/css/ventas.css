@@ -1,0 +1,152 @@
+@charset "ISO-8859-1";
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color:rgb(39, 37, 34); 
+}
+
+section{
+	
+	background: rgba(0,0,0);
+	
+	
+}
+#form1{
+	margin:auto auto;
+	width: 70%;
+	padding: 50px;
+}
+
+
+.inputs{
+   
+    position: relative;
+    width: 20%;
+    
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    /*outline es sin contorno*/
+    outline:none ;
+    background-color:rgb(61, 59, 57);
+    color: rgb(121, 132, 131);/*color de la fuente*/
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+table {
+	 position: relative;
+	top:30px;
+	border-spacing: 10px;
+	
+}
+
+
+
+::placeholder{ /*color del nombre de la celda*/
+    background-color:rgb(61, 59, 56);
+}
+#consultarp1{
+	 width: 100%
+}
+#np1{
+	 width: 100%
+}
+#valorp1{
+	 width: 100%
+}
+
+
+#consultarp2{
+	 width: 100%
+}
+#np2{
+	 width: 100%
+}
+#valorp2{
+	 width: 100%
+}
+
+
+#consultarp3{
+	 width: 100%
+}
+#np3{
+	 width: 100%
+}
+#valorp3{
+	 width: 100%
+}
+
+
+#tventa{
+	 width: 100%
+}
+#tIva{
+	 width: 100%
+}
+#Total{
+	 width: 100%
+}
+
+#valor1{
+	width: 100%
+	
+}
+
+#envio{
+	top:30px;
+}
+
+#iva1{
+	width: 100%
+}
+
+#iva2{
+	width: 100%
+}
+
+#iva3{
+	width: 100%
+}
+
+
+
+
+.infot{
+	
+	position: relative;
+    width: 20%;
+    
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    /*outline es sin contorno*/
+    outline:none ;
+    background-color:rgb(61, 59, 57);
+    color: rgb(121, 132, 131);/*color de la fuente*/
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+	
+}
+
+
+.button{
+    position: relative;
+    
+    left: 0%;
+    width: 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    outline:none ;
+    background-color:rgb(127, 166, 80);
+    color:white;
+    cursor:pointer ; /*Usabilidad*/
+    
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.button:hover{ /*cuando se pase el mause por encima*/
+    background-color:rgb(149, 187, 74);
+}

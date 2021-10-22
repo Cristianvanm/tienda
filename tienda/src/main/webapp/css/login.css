@@ -1,0 +1,78 @@
+@charset "ISO-8859-1";
+body{
+    padding: 0px;
+    margin: 0px;
+}
+form{
+    background-color:rgb(39, 37, 34); 
+    height: 400px;
+    width: 60%;
+    position: relative;
+    left: 5%;
+    top: 3px;
+}
+h2{
+    position: absolute;
+    top: 0px;
+    left: 30%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:white;
+}
+a{
+    position:relative;
+    top:45%;
+    left: 30%;
+    color:white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 130%;
+}
+.inputs{
+   
+    position: relative;
+    width: 100%;
+    left: 100%;
+    top: 70px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    /*outline es sin contorno*/
+    outline:none ;
+    background-color:rgb(61, 59, 57);
+    color: rgb(121, 132, 131);/*color de la fuente*/
+    font-size: 20px;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+::placeholder{ /*color del nombre de la celda*/
+    background-color:rgb(61, 59, 56);
+}
+
+.fa-file-upload{
+    font-size: 20px;
+}
+#fileUpload{ /*# para seleccionar el id*/
+    display: none;
+}
+.button{
+    position: relative;
+    top:110px;
+    left: 100%;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    outline:none ;
+    background-color:rgb(127, 166, 80);
+    color:white;
+    cursor:pointer ; /*Usabilidad*/
+    
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.upload:hover{ /*cuando se pase el mause por encima*/
+    background-color:rgb(149, 187, 74);
+    cursor: pointer;
+}
+.button:hover{ /*cuando se pase el mause por encima*/
+    background-color:rgb(149, 187, 74);
+}

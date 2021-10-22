@@ -1,0 +1,34 @@
+@charset "ISO-8859-1";
+body{
+    background-color: rgb(39, 37, 34);
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 50px;
+    
+}
+ul{
+    list-style:none ;
+    background-color: rgb(39, 37, 34);
+}
+e{
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+li{
+    display: inline-block;
+    border-style:groove;
+    background-color:rgb(127, 166, 80);
+    padding: 10px;
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+a{
+    text-decoration:none;
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.li:hover{
+    background-color:rgb(149, 187, 74);
+    cursor: pointer;
+}

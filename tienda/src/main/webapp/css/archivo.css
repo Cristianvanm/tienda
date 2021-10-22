@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+/*Comentario CSS
+Cascading Style Sheets
+Sirve para darle un estilo a la pagina
+*/
+body{
+    background-color:rgba(39, 37, 34, 0.329); 
+}
+/* Selector de etiqueta*/
+table{
+    position:absolute;
+    left:36%;
+   text-align:center;
+    border-style:solid;
+    border-collapse: collapse;
+    border-color: rgb(238, 238, 238);
+    box-shadow:rgb(127, 166, 80) 5px 5px 10px;
+}
+tr{
+    background-color:rgb(31 43 17)
+}
+td{
+    text-align: center;
+    border-style:groove;
+    border-color: rgb(238, 238, 238);
+    padding: 5px;
+    color:rgb(117, 117, 117);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+td:hover{
+    background-color:rgba(74, 72, 70, 0.39);   
+}
+th:hover{
+    background-color:rgba(74,72,70,0.39);   
+}

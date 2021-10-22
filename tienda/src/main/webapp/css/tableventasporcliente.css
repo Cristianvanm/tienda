@@ -1,0 +1,51 @@
+@charset "ISO-8859-1";
+/*Comentario CSS
+Cascading Style Sheets
+Sirve para darle un estilo a la pagina
+*/
+body{
+    background-color:rgba(39, 37, 34, 0.329); 
+}
+/* Selector de etiqueta*/
+table{
+	 position:relative;
+    left:35%;
+   text-align:center;
+    border-style:solid;
+    border-collapse: collapse;
+    border-color: rgb(238, 238, 238);
+    box-shadow:rgb(127, 166, 80) 5px 5px 10px;
+}
+th,td{
+    border-style:groove;
+    border-color: rgb(238, 238, 238);
+    padding: 5px;
+    color:white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+td{
+    text-align: center;
+    color:rgb(117, 117, 117);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+td:hover{
+    background-color:rgba(74, 72, 70, 0.39);   
+}
+th:hover{
+    background-color:rgba(74,72,70,0.39);   
+}
+label{
+   position:relative;
+    top: 20px; 
+}
+
+.infot{
+    background-color:rgb(61, 59, 56); 
+     border-radius: 20px;
+     padding: 5px;
+     position:relative;
+    top: 20px;
+	 width: 20%;
+    
+     
+}
