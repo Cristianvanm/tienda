@@ -57,6 +57,20 @@ function saveme(){ $.ajax({
           var classicon2 = document.createAttribute("class");
           classicon2.value="fa fa-user-slash";
           icon2.setAttributeNode(classicon2);
+
+		var button3=document.createElement("button");
+          var idbutton3 = document.createAttribute("id");//tr con id
+          idbutton3.value=item.acednit;
+          button3.setAttributeNode(idbutton3);
+         
+         var classbutton3 = document.createAttribute("class");
+          classbutton3.value="btn btn-warning btnActualizar";
+          button3.setAttributeNode(classbutton3);
+
+          var icon3=document.createElement("i");
+          var classicon3 = document.createAttribute("class");
+          classicon3.value="fa fa-user-cog";
+          icon3.setAttributeNode(classicon3);
         
 
           lista.appendChild(tr);
@@ -70,9 +84,17 @@ function saveme(){ $.ajax({
          button.appendChild(icon);
          columna6.appendChild(button2);
          button2.appendChild(icon2);
-           
+          columna6.appendChild(button3);
+         button3.appendChild(icon3);
         
          });
+
+$(document).ready(function() {  //este codigo inicializa la datatable. se pone aqui para que se genere luego de actualizar la tabla.
+    $('#tabla').DataTable({
+	
+});
+} );
+
         }
          }) };
 
@@ -136,7 +158,7 @@ function saveme(){ $.ajax({
         url:"http://localhost:8080/Provee/",
         contentType:"application/json"
     })
-    
+    location.reload();
 })
 
 $('#actualizarProveedor').click(function(event){
@@ -163,3 +185,145 @@ $('#actualizarProveedor').click(function(event){
     })
     
 })
+
+//modal en actualizar Proveedor
+     $('table').on('click','.btnActualizar',function(){
+	   var nit=$(this).attr('id');
+       console.log(nit);
+        $.ajax({
+	          type:"GET",
+              url:"http://localhost:8080/Provee/"+nit,
+             dataType: "json",
+             error: function(){
+	           alert("Error en la peticion");
+      				 },
+			 success: function() {
+				
+				$('#exampleModal1').modal("show")
+				
+						
+    $('#ActualizarProveedor').click(function(event){
+   var Nit = nit;
+    var ciudad = $("#input22").val();
+    var direccion = $("#input33").val();
+    var email = $("#input44").val();
+    var telefono = $("#input55").val();
+
+ //JSON
+  var prove={
+        acednit:Nit,
+        bciudad: ciudad,
+        cdireccion: direccion,
+        demail: email,
+        etelefono: telefono
+    
+    }
+    $.ajax({
+        type:"PUT",
+        data:JSON.stringify(prove), //esto permite convertir el string de user a objeto JSON
+        url:"http://localhost:8080/Provee/",
+        contentType:"application/json",
+		success: function() {
+			location.reload();
+			}
+    })
+})
+}    
+})
+})
+
+
+	//actualizar con cedula
+	
+	$('#ActualizarProveedor2').click(function(){
+     var Nit = $("#input111").val();
+    var ciudad = $("#input222").val();
+    var direccion = $("#input333").val();
+    var email = $("#input444").val();
+    var telefono = $("#input555").val();
+
+if(Nit==null){
+		alert("Debe ingresar Un Nit");
+	}else{
+		
+		$.ajax({
+	          type:"GET",
+              url:"http://localhost:8080/Provee/"+Nit,
+             dataType: "json",
+             error: function(){
+	           alert("Debe ingresar Un Nit");
+       }
+    }).done(function(data){
+	console.log(data.acednit)
+	      if(data.acednit==0){
+		alert("El Proveedor No Se Encuentra Registrado");
+		
+		
+			}else{
+    
+    //JSON
+    var prove={
+        acednit:Nit,
+        bciudad: ciudad,
+        cdireccion: direccion,
+        demail: email,
+        etelefono: telefono
+    }
+    $.ajax({
+        type:"PUT",
+        data:JSON.stringify(prove), //esto permite convertir el string de user a objeto JSON
+        url:"http://localhost:8080/Provee/",
+        contentType:"application/json",
+		success: function() {
+			location.reload();
+			}
+    })
+    }
+})
+}
+})
+
+
+
+// modal eliminar
+$('#EliminarProveedor').click(function(event){
+		 var Nit = $("#input0").val();
+	console.log(Nit);
+	
+	if(Nit==null){
+		alert("Debe ingresar Un Nit");
+	}else{
+		
+		$.ajax({
+	          type:"GET",
+              url:"http://localhost:8080/Provee/"+Nit,
+             dataType: "json",
+             error: function(){
+	          alert("Debe ingresar Un Nit");
+       }
+    }).done(function(data){
+	      if(data.acednit==0){
+		alert("El Proveedor No Se Encuentra Registrado");
+		
+		
+			}else{
+				$.ajax({
+		      type:"DELETE",
+              url:"http://localhost:8080/Provee/"+Nit,
+       		  contentType:"application/json",
+			  success: function() {
+			  location.reload();
+		      }
+		 
+	
+               
+		})
+			}
+		})
+	
+	}
+
+	
+	     
+	   
+	})

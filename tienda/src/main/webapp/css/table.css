@@ -4,21 +4,59 @@ Cascading Style Sheets
 Sirve para darle un estilo a la pagina
 */
 body{
-    background-color:rgba(39, 37, 34, 0.329); 
+    background-color:aqua; 
 }
 /* Selector de etiqueta*/
 table{
+	position: relative;
+	top: 50px;
    text-align:center;
+   margin: 0 auto;
     border-style:solid;
     border-collapse: collapse;
     border-color: rgb(238, 238, 238);
     box-shadow:rgb(127, 166, 80) 5px 5px 10px;
+    
+}
+
+.modal .modal-content{
+	background-image: url("../media/disparo-estrellas-hacia-abajo-animado.gif");
+}
+
+.modal h5{
+	color:white;
+}
+
+.login{
+	background-image: url("../media/disparo-estrellas-hacia-abajo-animado.gif");
+	top: 100px;
+	margin: 100px auto;
+
+}
+
+.login .log{
+	background-image: url("../media/estrellas-en-el-bosque.gif");
+	color:white;
+	width: 100%;
+}
+
+.modal input{
+	background-image: url("../media/estrellas-en-el-bosque.gif");
+	color:white;
+}
+
+#iz{
+	background:blue;
+	position: absolute;
+	width:15%;
+	top: 119px;
+	left: 0px;
 }
 th,td{
     border-style:groove;
     border-color: rgb(238, 238, 238);
     padding: 5px;
-    color:white;
+    color:blue;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 td{
@@ -32,6 +70,20 @@ td:hover{
 th:hover{
     background-color:rgba(74,72,70,0.39);   
 }
+.buscar label{
+    top:25px;
+	
+	position: relative;
+	border-style:solid;
+	width:15%;
+	background-color:rgb(39, 37, 34);
+	border-color: rgb(238, 238, 238);
+	text-align: center;
+	color:rgb(200 , 200, 200);
+	font-size: 20px;
+	font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
 .upload{
     position: absolute;
     top: 190px;

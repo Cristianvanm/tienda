@@ -41,7 +41,11 @@ table {
 	
 }
 
-
+.numeroP{
+	 width: 50%;
+	 border-radius: 20px;
+	
+}
 
 ::placeholder{ /*color del nombre de la celda*/
     background-color:rgb(61, 59, 56);

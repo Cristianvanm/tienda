@@ -70,7 +70,33 @@ public class VentasDAO {
 	       return venta;
 	}
 	
-	
+	public ArrayList<Ventas> busquedaDAO(int cedula) {
+		System.out.println(cedula);
+		ArrayList<Ventas> listaVentas = new ArrayList<Ventas>();
+		Connection conn = new Connection();
+		
+		try {
+			PreparedStatement statement = conn.getConnection().prepareStatement("SELECT * FROM ventas WHERE cedula_cliente=?");
+			ResultSet result = statement.executeQuery();
+			statement.setInt(1, cedula);
+			while(result.next()) {
+				Ventas ventas = new Ventas();
+			    ventas.setaCodigo(Integer.parseInt(result.getString("codigo_venta")));
+				ventas.setcCedulaCliente(Integer.parseInt(result.getString("cedula_cliente")));
+				ventas.setcCedulaUsuario(Integer.parseInt(result.getString("cedula_usuario")));
+				ventas.setdIvaVenta(Double.parseDouble(result.getString("ivaventa")));
+				ventas.seteTotalVenta(Double.parseDouble(result.getString("total_venta")));
+				ventas.setfValorVenta(Double.parseDouble(result.getString("valor_venta")));
+				listaVentas.add(ventas);
+				
+			}
+			result.close();
+			statement.close();
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"no se pudo realizar la consulta\n"+e);
+		} 
+		return listaVentas;
+	}
 		
 	}
 

@@ -1,11 +1,18 @@
 @charset "ISO-8859-1";
 body{
-    background-color: rgb(39, 37, 34);
+    background-image:url("../media/fondo-animados-estrellas.gif");
     color:white;
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 0px;
     
+}
+
+#navprin{
+	background-image: url("../media/Tienda Generica.gif");
+	
+    background-size: cover;
+
 }
 ul{
     list-style:none ;
@@ -20,6 +27,7 @@ li{
     border-style:groove;
     background-color:rgb(127, 166, 80);
     padding: 10px;
+    width:120px;
     color:white;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
@@ -27,7 +35,10 @@ a{
     text-decoration:none;
     color:white;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    
 }
+
+
 .li:hover{
     background-color:rgb(149, 187, 74);
     cursor: pointer;

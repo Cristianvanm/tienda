@@ -12,15 +12,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="css/login.css">
+   	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    
-    <!--para fuentes y tipo de letra-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
-    <!--para iconos-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/flick/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+	<link rel="stylesheet" href="css/table.css">
+	<link rel="stylesheet" href="css/nave.css"></head>
 
 <body>
     <!--ul lista desordenada, elementos y listas, ol es ordenada-->
@@ -29,14 +30,14 @@
     
     <form   name="formulario" method="post" action="Login.jsp">
     <h2>Tienda Doña Gallina Iniciar Sesión</h2>
-    <table>
+    <table class="login">
         
     <!--etiqueta con multiples atributos-->
      <!--place holder le da nombre a o instructivo a la cajita-->
-       <tr><td><input type="text" class ="inputs" id ="input1" name ="inputUser" placeholder="Usuario..">
+       <tr><td><input type="text" class ="inputs log" id ="input1" name ="inputUser" placeholder="Usuario..">
                
         <!--enmascaramiento-->
-       <tr><td>  <input type="password" class ="inputs" id ="input2" name ="inputPassword" placeholder="Contraseña.."> <!--convencion camel case igual que java-->
+       <tr><td>  <input type="password" class ="inputs log" id ="input2" name ="inputPassword" placeholder="Contraseña.."> <!--convencion camel case igual que java-->
         <label id="error2" style="color:red" ></label></td></tr>
      
        <!--   <input type="submit" name ="login" id ="input3" class ="button" value ="INGRESAR">-->
