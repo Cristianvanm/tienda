@@ -18,6 +18,7 @@ public class TiendaApplication {
 		Connection conn = new Connection();
 		conn.getConnection();
 		new TiendaApplication();
+		
 		//vistaLogin.iniciar();
 		archivo.arc();
 	}
