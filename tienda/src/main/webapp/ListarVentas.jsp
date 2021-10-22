@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@page session="true"  %>
 <!DOCTYPE html>
 
 <!-- http://localhost:8080/ListarUsuario.jsp-->
@@ -16,10 +17,21 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+<%                                                     
+     HttpSession sesion = request.getSession();
+     String usuario;
+     if(sesion.getAttribute("user")==null){
+    	 out.print("<script>location.replace('Login.jsp');</script>");
+     }
+     else{
+    	 usuario=sesion.getAttribute("user").toString();
+    	 out.print("<a href='Login.jsp?cerrar=true'><h5>Cerrar Sesion</h5></a>");
+     }
+%>
      <e>---------LISTADO VENTAS---------</e><!--elementos de la lista-->
     <hr>
     <ul>
-        <li><a href="Ventas.jsp">Volver</a></li><!--elementos de la lista-->
+        <li><a href="GestionReportes.jsp">Volver</a></li><!--elementos de la lista-->
        
     </ul>
      <!--hr para ver la linea arriba-->

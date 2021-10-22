@@ -1,4 +1,46 @@
+saveme();
+function saveme(){ $.ajax({ 
+//var saveme =  //con ajax consumimos la api
+        type: "POST",
+        url: "http://localhost:8080/Ventas/Lista", //ruta de la API consultaremos.
+      
+          success: function(data) {
+	      lista = document.getElementById("cuerpoTabla");
+         // lista.innerHTML = '';
+          $.each(data, function(i, item) {
+          
+         
+         var tr = document.createElement("tr");
+       // var idtr = document.createAttribute("id");//tr con id
+      //  idtr.value=item.bCedulaCliente;
+      //   tr.setAttributeNode(idtr);
+      
+          var columna1 = document.createElement("th");
+          columna1.innerHTML = item.aCodigo;
+          var columna2 = document.createElement("th");
+          columna2.innerHTML = item.bCedulaCliente;
+          var columna3 = document.createElement("th");
+          columna3.innerHTML = item.cCedulaUsuario;
+          var columna4 = document.createElement("th");
+          columna4.innerHTML = item.dIvaVenta;
+           var columna5 = document.createElement("th");
+          columna5.innerHTML = item.eTotalVenta;
+           var columna6 = document.createElement("th");
+          columna6.innerHTML = item.fValorVenta;
 
+         
+
+          lista.appendChild(tr);
+          tr.appendChild(columna1);
+          tr.appendChild(columna2);
+          tr.appendChild(columna3);
+          tr.appendChild(columna4);
+          tr.appendChild(columna5);
+          tr.appendChild(columna6);
+       
+         });
+        }
+         }) };
 
 cons()
 function cons(){
@@ -22,8 +64,26 @@ function cons(){
 }
 
 
+$('#consultarCliente').click(function(event){
+         var cedula = $("#cedula").val();
+       
+        $.ajax({
+	          type:"GET",
+              url:"http://localhost:8080/Login/Log",
+             dataType: "json",
+             error: function(){
+	           alert("Error en la peticion");
+       }
+    }).done(function(data){
+	      console.log(data.cedulaUser);
+          
+          document.getElementById('cedulaUsuario').value=data.cedulaUser;
+      
+ })
+    
 
-	
+})
+
 		
 	$('#consultarCliente').click(function(event){
          var cedula = $("#cedula").val();
@@ -33,25 +93,19 @@ function cons(){
               url:"http://localhost:8080/Clientes/"+cedula,
              dataType: "json",
              error: function(){
-	           alert("INGRESE UN DOCUMENTO");
+	           alert("Error en la peticion");
        }
     }).done(function(data){
-	
-	if(data.nombreCliente==null){
-		
-		alert("El Usuario No Se Encuentra En La Base De Datos");
-		document.getElementById('nCliente').value="NO DATA"
-	}else{
-		console.log(data.nombreCliente);
+	      console.log(data.nombreCliente);
           
           document.getElementById('nCliente').value=data.nombreCliente;
-	}
-	      
-        
-           
+      
  })
     
+
 })
+
+
   //consulta producto 1
 	$('#consultarp1').click(function(event){
          var codigo = $("#p1").val();
@@ -66,40 +120,16 @@ function cons(){
               url:"http://localhost:8080/Productos/"+codigo,
              dataType: "json",
              error: function(){
-	           alert("Ingrese Codigo Del Producto");
-				document.getElementById('np1').value="Null";
+	           alert("Error en la peticion");
        }
     }).done(function(data){
-	console.log(data.nombreProducto);
-		if(data.nombreProducto== null){
-			
-			console.log("No Existe en bd");
-			document.getElementById('np1').value="No Existe en bd";
-			
-			P=data.precioVenta;
-		I=data.ivaCompra;
-		Pi=(P*(I/100))*cantidad; 
-		valorP=P*cantidad;
-		tVenta=valorP+parseInt(venta2,10)+parseInt(venta3,10);
-		tIva=Pi+parseInt(iva2,10)+parseInt(iva3,10)
-		Total=tVenta+tIva;
-			
-			document.getElementById('valorp1').value=0;
-		document.getElementById('iva1').value=0;
-		document.getElementById('tventa').value=tVenta;
-		document.getElementById('tIva').value=tIva
-		document.getElementById('Total').value=Total;
-			
-		}else{
-			
-			console.log(data.nombreProducto);
-        document.getElementById('np1').value=data.nombreProducto;
-         			
-		
-	      
+	      console.log(data.nombreProducto);
+        
+         
+		document.getElementById('np1').value=data.nombreProducto;
 		
 		
-		P=data.precioVenta;
+		P=data.precioCompra;
 		I=data.ivaCompra;
 		Pi=(P*(I/100))*cantidad; 
 		valorP=P*cantidad;
@@ -107,21 +137,19 @@ function cons(){
 		tIva=Pi+parseInt(iva2,10)+parseInt(iva3,10)
 		Total=tVenta+tIva;
 		
-	/*	
+		console.log(P)
 		console.log(iva2);
 		console.log(typeof iva2);
 		console.log(tVenta);
 		console.log(typeof tVenta);
 		console.log(typeof valorP);
 		console.log();
-	*/
 	
         document.getElementById('valorp1').value=valorP;
 		document.getElementById('iva1').value=Pi;
 		document.getElementById('tventa').value=tVenta;
 		document.getElementById('tIva').value=tIva
 		document.getElementById('Total').value=Total;
-		}
            
  })
     
@@ -141,43 +169,20 @@ function cons(){
               url:"http://localhost:8080/Productos/"+codigo,
              dataType: "json",
              error: function(){
-	           alert("Ingrese Codigo Del Producto");
-				document.getElementById('np2').value="Null";
+	           alert("Error en la peticion");
        }
     }).done(function(data){
-	      if(data.nombreProducto== null){
-			
-			console.log("No Existe en bd");
-			document.getElementById('np2').value="No Existe en bd";
-			
-			P=data.precioVenta;
-		I=data.ivaCompra;
-		Pi=(P*(I/100))*cantidad; 
-		valorP=P*cantidad;
-		tVenta=valorP+parseInt(venta1,10)+parseInt(venta3,10);
-		tIva=Pi+parseInt(iva1,10)+parseInt(iva3,10)
-		Total=tVenta+tIva;
-			
-			document.getElementById('valorp2').value=0;
-		document.getElementById('iva2').value=0;
-		document.getElementById('tventa').value=tVenta;
-		document.getElementById('tIva').value=tIva
-		document.getElementById('Total').value=Total;
-			
-		}else{
-			
-			console.log(data.nombreProducto);
-        document.getElementById('np1').value=data.nombreProducto;
+	      console.log(data.nombreProducto);
           
           
 		document.getElementById('np2').value=data.nombreProducto;
-       P=data.precioVenta;
+       P=data.precioCompra;
 		
 		
 		valorP=P*cantidad;
         document.getElementById('valorp2').value=valorP;
 
-		P=data.precioVenta;
+		P=data.precioCompra;
 		I=data.ivaCompra;
 		Pi=(P*(I/100))*cantidad; 
 		valorP=P*cantidad;
@@ -191,8 +196,6 @@ function cons(){
 		document.getElementById('tventa').value=tVenta;
 		document.getElementById('tIva').value=tIva
 		document.getElementById('Total').value=Total;
-		
-		}
            
  })
     
@@ -212,43 +215,20 @@ function cons(){
               url:"http://localhost:8080/Productos/"+codigo,
              dataType: "json",
              error: function(){
-	           alert("Ingrese Codigo Del Producto");
-				document.getElementById('np3').value="Null";
+	           alert("Error en la peticion");
        }
     }).done(function(data){
-	     if(data.nombreProducto== null){
-			
-			console.log("No Existe en bd");
-			document.getElementById('np3').value="No Existe en bd";
-			
-			P=data.precioVenta;
-		I=data.ivaCompra;
-		Pi=(P*(I/100))*cantidad; 
-		valorP=P*cantidad;
-		tVenta=valorP+parseInt(venta1,10)+parseInt(venta2,10);
-		tIva=Pi+parseInt(iva1,10)+parseInt(iva2,10)
-		Total=tVenta+tIva;
-			
-			document.getElementById('valorp3').value=0;
-		document.getElementById('iva3').value=0;
-		document.getElementById('tventa').value=tVenta;
-		document.getElementById('tIva').value=tIva
-		document.getElementById('Total').value=Total;
-			
-		}else{
-			
-			console.log(data.nombreProducto);
-        document.getElementById('np1').value=data.nombreProducto;
+	      console.log(data.nombreProducto);
           
           
 		document.getElementById('np3').value=data.nombreProducto;
-         P=data.precioVenta;
+         P=data.precioCompra;
 		
 		
 		valorP=P*cantidad;
         document.getElementById('valorp3').value=valorP;
 
-		P=data.precioVenta;
+		P=data.precioCompra;
 		I=data.ivaCompra;
 		Pi=(P*(I/100))*cantidad; 
 		valorP=P*cantidad;
@@ -260,10 +240,8 @@ function cons(){
         document.getElementById('valorp3').value=valorP;
 		document.getElementById('iva3').value=Pi;
 		document.getElementById('tventa').value=tVenta;
-		document.getElementById('tIva').value=tIva;
+		document.getElementById('tIva').value=tIva
 		document.getElementById('Total').value=Total;
-		
-		}
 		
            
  })

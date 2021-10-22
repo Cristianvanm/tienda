@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+ <%@page session="true"  %>
 <!DOCTYPE html>
 
 <!-- http://localhost:8080/ReporteVentasClientes.jsp-->
@@ -19,7 +21,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
+<%                                                     
+     HttpSession sesion = request.getSession();
+     String usuario;
+     if(sesion.getAttribute("user")==null){
+    	 out.print("<script>location.replace('Login.jsp');</script>");
+     }
+     else{
+    	 usuario=sesion.getAttribute("user").toString();
+    	 out.print("<a href='Login.jsp?cerrar=true'><h5>Cerrar Sesion</h5></a>");
+     }
+%>
 
          <nav id="navprin"> <br> <br> <br><br> <br></nav>
       
@@ -56,21 +68,13 @@
      <!--hr para ver la linea arriba-->
     <hr>
      <!-- contenido de la pagina -->
-      <div> 
-        <label for="serial">Cedula $.</label>
-        <input type="number" class="inputs" name ="cedula" id ="cedula" placeholder="cedula"  >
-         <input type="button" class="btn btn-success" name ="consultarCedula" id ="consultarCedula" value="Consultar"  >
-        
-      </div>
+      
      <table id="tabla" class="table">
         <thead>
-        <tr>
-        	<th>codigo_venta</th>
-            <th>cedula_cliente</th>
-            <th>cedula_usuario</th>
-            <th>ivaventa</th>
-            <th>total_venta</th>
-            <th>valor_venta</th>
+         <tr>
+        	<th>Cedula Cliente</th>
+            <th>Nombre Cliente</th>
+            <th>Valor Total Ventas</th>
         </tr>
                
         </thead>

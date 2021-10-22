@@ -18,18 +18,14 @@ import com.bosque.DTO.VentasPorCliente;
 
 
 @RestController
-@RequestMapping("/Ventascliente") // http://localhost:8080/Clientes/Lista
+@RequestMapping("/Ventascliente") // http://localhost:8080/Ventascliente/Lista
 public class VentasPorClienteController {
 	VentasPorClienteDAO ventasPorClienteDAO = new VentasPorClienteDAO();
 	VentasDAO ventasDAO = new VentasDAO();
-//@RequestMapping("/Lista")
+@RequestMapping("/Lista")
 	
-//	public ArrayList<VentasPorCliente> listaVentas(){
-	//	return ventasPorClienteDAO.listaVentasPorCliente();
-//}
-@PostMapping(value="{cedula}")
-public ArrayList<Ventas> busquedaDAO(@PathVariable("cedula")int cedula) {
-	
-	return ventasDAO.busquedaDAO(cedula);
+	public ArrayList<VentasPorCliente> listaVentas(){
+		return ventasPorClienteDAO.listaVentasPorCliente();
 }
+
 }

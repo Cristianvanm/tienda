@@ -81,6 +81,8 @@
       <div> 
         <label for="serial">Consec.</label>
         <input type="text" Class="infot" name ="serial" id ="serial" disabled="disabled"  >
+         <label for="usuario">Usuario.</label>
+           <input type="text" Class="infot" name ="cedulaUsuario" id ="cedulaUsuario" disabled="disabled"  >
       </div>
       
       
@@ -98,7 +100,7 @@
         		
         </thead>
         
-        <tbody id="cuerpoTabla">
+        <tbody id="">
         <tr>
         	<th> <input type="number"  class ="numeroP inputs" id ="p1" name ="producto1" placeholder="Producto1"></th>
         	<th><input type="Button" name ="Cp1" id ="consultarp1" class ="btn btn-info btn-lg" value ="Consultar"> </th>

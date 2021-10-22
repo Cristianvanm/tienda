@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+ <%@page session="true"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,17 @@
 	<link rel="stylesheet" href="css/nave.css">
 </head>
 <body>
-     
+     <%                                                     
+     HttpSession sesion = request.getSession();
+     String usuario;
+     if(sesion.getAttribute("user")==null){
+    	 out.print("<script>location.replace('Login.jsp');</script>");
+     }
+     else{
+    	 usuario=sesion.getAttribute("user").toString();
+    	 out.print("<a href='Login.jsp?cerrar=true'><h5>Cerrar Sesion</h5></a>");
+     }
+%>
     <e>---------GESTION DE VENTAS TIENDA DOÑA GALLINA---------</e><!--elementos de la lista-->
       
     <hr>

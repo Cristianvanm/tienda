@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+ <%@page session="true"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +14,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-	<link rel="stylesheet" href="css/table.css">
+	<link rel="stylesheet" href="css/table1.css">
 	<link rel="stylesheet" href="css/nave.css">
 </head>
 <body>
-     
+     <%                                                     
+     HttpSession sesion = request.getSession();
+     String usuario;
+     if(sesion.getAttribute("user")==null){
+    	 out.print("<script>location.replace('Login.jsp');</script>");
+     }
+     else{
+    	 usuario=sesion.getAttribute("user").toString();
+    	 out.print("<a href='Login.jsp?cerrar=true'><h5>Cerrar Sesion</h5></a>");
+     }
+%>
 <nav id="navprin"> <br> <br> <br><br> <br></nav>
 
       <nav  >

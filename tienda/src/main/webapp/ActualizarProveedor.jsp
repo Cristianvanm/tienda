@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!--http://localhost:8080/ActualizarUsuario.jsp-->
+ <%@page session="true"  %> <!--http://localhost:8080/ActualizarProveedor.jsp-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,6 +19,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+<%                                                     
+     HttpSession sesion = request.getSession();
+     String usuario;
+     if(sesion.getAttribute("user")==null){
+    	 out.print("<script>location.replace('Login.jsp');</script>");
+     }
+     else{
+    	 usuario=sesion.getAttribute("user").toString();
+    	 out.print("<a href='Login.jsp?cerrar=true'><h5>Cerrar Sesion</h5></a>");
+     }
+%>
     <e>---------ACTUALIZAR PROVEEDOR---------</e><!--elementos de la lista-->
     <hr>
     <ul>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+ <%@page session="true"  %>
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- http://localhost:8080/GestionUsuarios.jsp-->
+    <!-- http://localhost:8080/GestionClientes.jsp-->
 	<meta charset="ISO-8859-1">
 	<title>LISTADO USUARIOS TIENDA DOÑA GALLINA</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -18,7 +18,17 @@
 	<link rel="stylesheet" href="css/nave.css">
 </head>
 <body>
-
+<%                                                     
+     HttpSession sesion = request.getSession();
+     String usuario;
+     if(sesion.getAttribute("user")==null){
+    	 out.print("<script>location.replace('Login.jsp');</script>");
+     }
+     else{
+    	 usuario=sesion.getAttribute("user").toString();
+    	 out.print("<a href='Login.jsp?cerrar=true'><h5>Cerrar Sesion</h5></a>");
+     }
+%>
 
          <nav id="navprin"> <br> <br> <br><br> <br></nav>
       

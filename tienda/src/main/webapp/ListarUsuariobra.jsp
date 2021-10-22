@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page session="true"  %>
 <!DOCTYPE html>
 
 <!-- http://localhost:8080/ListarUsuariobra.jsp-->
@@ -18,6 +19,17 @@
 	
 </head>
 <body>
+<%                                                     
+     HttpSession sesion = request.getSession();
+     String usuario;
+     if(sesion.getAttribute("user")==null){
+    	 out.print("<script>location.replace('Login.jsp');</script>");
+     }
+     else{
+    	 usuario=sesion.getAttribute("user").toString();
+    	 out.print("<a href='Login.jsp?cerrar=true'><h5>Cerrar Sesion</h5></a>");
+     }
+%>
      <ul>
         <li><a href="primerPagina.html">Usuarios</a></li><!--elementos de la lista-->
         <li><a href="formulario.html">Clientes</a></li>
