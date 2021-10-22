@@ -19,6 +19,6 @@ public class TiendaApplication {
 		conn.getConnection();
 		new TiendaApplication();
 		//vistaLogin.iniciar();
-		//archivo.arc();
+		archivo.arc();
 	}
 }
